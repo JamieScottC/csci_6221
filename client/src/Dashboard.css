@@ -93,6 +93,12 @@ form label {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
+.spending-text {
+  color: red;
+  position: absolute;
+  top: 20px;
+  font-size: 20px;
+}
 .savings-input {
   padding: 13px 20px;
   font-weight: 500;

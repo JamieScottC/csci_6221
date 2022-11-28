@@ -165,11 +165,12 @@ function Dashboard() {
         </form>
       </Modal>
       <span className="savings-text">Total Savings Per Month: ${savings}</span>
+      {savings < 0 && <h2 className="spending-text">You are overspending!</h2>}
       <button className="savings-button" onClick={() => setIsOpen(true)}>
         Plan Your Savings
       </button>
       <label>
-        Income Per Moth{" "}
+        Income Per Month{" "}
         <input
           className="savings-input"
           value={income}
@@ -220,6 +221,7 @@ function Dashboard() {
           <label>
             Food/Groceries:
             <input
+              className={food > maxFood ? "red-border" : ""}
               value={food}
               onChange={(e) =>
                 e.target.value === ""
@@ -231,6 +233,7 @@ function Dashboard() {
           <label>
             Transportation:
             <input
+              className={transportation > maxTransportation ? "red-border" : ""}
               value={transportation}
               onChange={(e) =>
                 e.target.value === ""
@@ -242,6 +245,7 @@ function Dashboard() {
           <label>
             Utilities:
             <input
+              className={utilities > maxUtilities ? "red-border" : ""}
               value={utilities}
               onChange={(e) =>
                 e.target.value === ""
@@ -253,6 +257,7 @@ function Dashboard() {
           <label>
             Medical:
             <input
+              className={medical > maxMedical ? "red-border" : ""}
               value={medical}
               onChange={(e) =>
                 e.target.value === ""
@@ -264,6 +269,7 @@ function Dashboard() {
           <label>
             Housing:
             <input
+              className={housing > maxHousing ? "red-border" : ""}
               value={housing}
               onChange={(e) =>
                 e.target.value === ""
