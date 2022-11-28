@@ -64,7 +64,7 @@ const signInWithGithub = async () => {
       });
     }
   } catch (err) {
-    console.error(err);
+    throw new Error("This email already exists on another account");
   }
 };
 
