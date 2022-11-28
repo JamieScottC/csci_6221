@@ -6,13 +6,34 @@ import Modal from "react-modal";
 import { PieChart } from "react-minimal-pie-chart";
 function Dashboard() {
   const [user, loading] = useAuthState(auth);
-  const [entertainment, setEntertainement] = useState(20);
-  const [income, setIncome] = useState(30);
-  const [food, setFood] = useState(20);
-  const [transportation, setTransportation] = useState(40);
-  const [utilities, setUtilities] = useState(10);
-  const [medical, setMedical] = useState(20);
-  const [housing, setHousing] = useState(40);
+  const [entertainment, setEntertainement] = useState(() => {
+    const storage = parseInt(localStorage.getItem("entertainment") || "20");
+    return storage;
+  });
+  const [income, setIncome] = useState(() => {
+    const storage = parseInt(localStorage.getItem("income") || "20");
+    return storage;
+  });
+  const [food, setFood] = useState(() => {
+    const storage = parseInt(localStorage.getItem("food") || "20");
+    return storage;
+  });
+  const [transportation, setTransportation] = useState(() => {
+    const storage = parseInt(localStorage.getItem("transportation") || "20");
+    return storage;
+  });
+  const [utilities, setUtilities] = useState(() => {
+    const storage = parseInt(localStorage.getItem("utilities") || "20");
+    return storage;
+  });
+  const [medical, setMedical] = useState(() => {
+    const storage = parseInt(localStorage.getItem("medical") || "20");
+    return storage;
+  });
+  const [housing, setHousing] = useState(() => {
+    const storage = parseInt(localStorage.getItem("housing") || "20");
+    return storage;
+  });
   const [savings, setSavings] = useState(20);
   const [maxEntertainment, setMaxEntertainement] = useState(1000);
   const [maxFood, setMaxFood] = useState(1000);
@@ -45,6 +66,13 @@ function Dashboard() {
       income -
         (entertainment + food + transportation + utilities + medical + housing)
     );
+    localStorage.setItem("entertainment", JSON.stringify(entertainment));
+    localStorage.setItem("food", JSON.stringify(food));
+    localStorage.setItem("transportation", JSON.stringify(transportation));
+    localStorage.setItem("utilities", JSON.stringify(utilities));
+    localStorage.setItem("medical", JSON.stringify(medical));
+    localStorage.setItem("housing", JSON.stringify(housing));
+    localStorage.setItem("income", JSON.stringify(income));
   }, [
     entertainment,
     food,
