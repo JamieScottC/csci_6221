@@ -202,7 +202,7 @@ function Dashboard() {
             { title: "Transportation", value: transportation, color: "blue" },
             { title: "Utilities", value: utilities, color: "yellow" },
             { title: "Medical", value: medical, color: "cyan" },
-            { title: "Housing", value: food, color: "black" },
+            { title: "Housing", value: housing, color: "black" },
           ]}
         />
         <form className="cat-form">
